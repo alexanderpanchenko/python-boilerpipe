@@ -89,6 +89,7 @@ class Extractor(object):
 	    encoding = re_enc_win.sub("windows-1251", encoding)
             if re_enc_def.search(encoding): encoding = DEFAULT_ENCODING
 	    self.data = unicode(self.data, encoding, "ignore")
+	    connection.close()
 
         elif kwargs.get('html'):
             self.data = kwargs['html']
